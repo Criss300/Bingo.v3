@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const columns = ['B', 'I', 'N', 'G', 'O'];
 
     // Función para generar números únicos para una columna específica
-    function generateBingoNumbers(letter) {
+    function generarBingoNumeros(letter) {
         const ranges = {
             B: [1, 15],
             I: [16, 30],
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Función para generar una tarjeta de Bingo
-    function generateBingoCard() {
+    function generarBingoCard() {
         const card = document.createElement('div');
         card.className = 'col';
         let cardHTML = `
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="card-body">
                     ${columns.map(col => {
-                        const cellNumbers = generateBingoNumbers(col);
+                        const cellNumbers = generarBingoNumeros(col);
                         return cellNumbers.map(num => `<div class="cell">${num}</div>`).join('');
                     }).join('')}
                 </div>
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Función para colorear columnas de tarjetas de manera secuencial y marcar la X en las tarjetas deseadas
-    function colorSequentialColumns() {
+    function colorSecuencialColumns() {
         const cards = document.querySelectorAll('.card');
         const colors = ['#ffcc00', '#99ff99', '#ff9999', '#ccccff', '#ffff99'];
 
@@ -84,9 +84,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Genera 8 tarjetas
     for (let iterar = 0; iterar < 8; iterar++) {
-        bingoContainer.appendChild(generateBingoCard());
+        bingoContainer.appendChild(generarBingoCard());
     }
 
     // Aplica colores y marcas
-    colorSequentialColumns();
+    colorSecuencialColumns();
 });
